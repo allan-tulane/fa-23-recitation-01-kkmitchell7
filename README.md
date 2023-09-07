@@ -53,19 +53,26 @@ The best case input for linear_search is that the key is in the first index sinc
 - [ ] 8. Call `print_results(compare_search())` and paste the results here:
 
 
-|     n |   linear |   binary |
-|-------|----------|----------|
-|    10 |    0.007 |    0.003 |
-|   100 |    0.003 |    0.004 |
-|  1000 |    0.034 |    0.003 |
-| 10000 |    0.363 |    0.006 |
+|        n |   linear |   binary |
+|----------|----------|----------|
+|       10 |    0.008 |    0.003 |
+|      100 |    0.003 |    0.003 |
+|     1000 |    0.033 |    0.003 |
+|    10000 |    0.386 |    0.004 |
+|   100000 |    3.938 |    0.011 |
+|  1000000 |   38.853 |    0.014 |
+| 10000000 |  386.441 |    0.016 |
 
 - [ ] 9. The theoretical worst-case running time of linear search is $O(n)$ and binary search is $O(log_2(n))$. Do these theoretical running times match your empirical results? Why or why not?
 
-For the linear search it seems that the time is O(n) because as we add 0s to 10, the time similarly increases by a decimal place. There's something weird going on with n = 100, though and I'm not sure why the time would be less than n = 10. I think this could be due to a bug in my code or because the machine can't get specific enough for the minute differences in run times between 10 and 100.
-For the binary search I think it matches the O(logn) runtime because its about increasing by 0.001 ms per every 0 added to 10. Without graphing all my data, I get the sense that its following this theoretical run time with some room for error.
+  + For the linear search it seems that the time is O(n) because as we add 0s to 10, the time similarly increases by a decimal place. There's some strange parts of the data like when the time decreases from n=10 to n=100 for the linear search, and I think this could be due to a bug in my code or because the machine can't get specific enough for the measuring of the tiny differences in run times between 10 and 100.
+
+  + For the binary search I think it matches the O(logn) runtime because its about increasing by 0.001 ms per every 0 added to 10. Without graphing all my data, I get the sense that its following this theoretical run time with some room for error.
 
 - [ ] 10. Binary search assumes the input list is already sorted. Assume it takes $\Theta(n^2)$ time to sort a list of length $n$. Suppose you know ahead of time that you will search the same list $k$ times. 
-  + What is worst-case complexity of searching a list of $n$ elements $k$ times using linear search? - k * O(n)
-  + For binary search? Theta(n^2) + k * O(logn)
-  + For what values of $k$ is it more efficient to first sort and then use binary search versus just using linear search without sorting? - There are no values of k where it's always more efficient to first sort and then use binary search because when the x values get large enough the k * O(n) will always intersect. n^2 + k * logn has an asymptote of x = 0, so it just gets less and less efficient with bigger values of x.
+  + What is worst-case complexity of searching a list of $n$ elements $k$ times using linear search? 
+     + k * O(n)
+  + For binary search? 
+    + Theta(n^2) + k * O(logn)
+  + For what values of $k$ is it more efficient to first sort and then use binary search versus just using linear search without sorting? 
+     + There are no values of k where it's always more efficient to first sort and then use binary search because when the x values get large enough the k * O(n) will always intersect. n^2 + k * logn has an asymptote of x = 0, so it just gets less and less efficient with bigger values of x. With smaller values of n, there's a period where sorting and then using binary search is faster, but as we approach bigger values of n it seems like linear search always dominates. With bigger values of k, this period where binary search is faster expands.

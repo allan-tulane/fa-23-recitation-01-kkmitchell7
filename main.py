@@ -35,7 +35,6 @@ def _binary_search(mylist, key, left, right):
 	middle = int((right+left)/2)
 
 	if key == mylist[middle]:
-		print(middle)
 		return middle
 	elif right <= left:
 		return -1
@@ -100,4 +99,4 @@ def print_results(results):
 							floatfmt=".3f",
 							tablefmt="github"))
 
-print_results(compare_search(sizes=[10, 100, 1000, 10000]))
+print_results(compare_search(sizes=[10, 100, 1000, 10000, 100000, 1000000, 10000000]))
